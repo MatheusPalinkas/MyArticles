@@ -1,4 +1,5 @@
-import { Toolbar, Button, Typography, Link } from "@material-ui/core";
+import { Toolbar, Button, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Book } from "@material-ui/icons";
 
@@ -12,6 +13,11 @@ export const LinkHome = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  text-decoration: none !important;
+`;
+
+export const LinkNovoArtigo = styled(Link)`
   cursor: pointer;
   text-decoration: none !important;
 `;

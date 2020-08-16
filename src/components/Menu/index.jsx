@@ -2,6 +2,7 @@ import React from "react";
 import {
   Header,
   LinkHome,
+  LinkNovoArtigo,
   IconBook,
   LogoNome,
   ButtonAdicionar,
@@ -10,11 +11,13 @@ import {
 const Menu = () => {
   return (
     <Header>
-      <LinkHome>
+      <LinkHome to="/">
         <IconBook />
         <LogoNome component="h2">MyArticles</LogoNome>
       </LinkHome>
-      <ButtonAdicionar variant="contained">Adicionar artigo</ButtonAdicionar>
+      <LinkNovoArtigo to="/novo/artigo">
+        <ButtonAdicionar variant="contained">Adicionar artigo</ButtonAdicionar>
+      </LinkNovoArtigo>
     </Header>
   );
 };

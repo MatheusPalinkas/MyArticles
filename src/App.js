@@ -1,17 +1,12 @@
 import React from "react";
 import "fontsource-roboto";
 
-import Menu from "./components/Menu";
+import Router from "./router";
 
 import "./index.css";
 
 const App = () => {
-  return (
-    <>
-      <Menu />
-      <h1>Olá mundo</h1>
-    </>
-  );
+  return <Router />;
 };
 
 export default App;
