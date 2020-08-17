@@ -1,7 +1,18 @@
 import React from "react";
 
+import Cabecalho from "../../components/Cabecalho";
+import FiltroArtigos from "./FiltroArtigos";
+import { Container } from "./styles";
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <Cabecalho nomePage="Artigos salvos" />
+      <Container>
+        <FiltroArtigos />
+      </Container>
+    </>
+  );
 };
 
 export default Home;

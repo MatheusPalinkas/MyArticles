@@ -32,7 +32,7 @@ export const IconBook = styled(Book)`
 export const LogoNome = styled(Typography)`
   color: #fff;
   font-weight: bold !important;
-  font-size: 30px !important;
+  font-size: 1.8em !important;
   line-height: 47px;
 `;
 

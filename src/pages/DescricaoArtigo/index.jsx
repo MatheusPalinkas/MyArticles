@@ -1,7 +1,9 @@
 import React from "react";
 
+import Cabecalho from "../../components/Cabecalho";
+
 const DescricaoArtigo = () => {
-  return <h1>DescricaoArtigo</h1>;
+  return <Cabecalho nomePage="Kanban" />;
 };
 
 export default DescricaoArtigo;

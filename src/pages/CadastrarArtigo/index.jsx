@@ -1,7 +1,9 @@
 import React from "react";
 
+import Cabecalho from "../../components/Cabecalho";
+
 const CadastrarArtigo = () => {
-  return <h1>CadastrarArtigo</h1>;
+  return <Cabecalho nomePage="Novo Artigo" />;
 };
 
 export default CadastrarArtigo;
