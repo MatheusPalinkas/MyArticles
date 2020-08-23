@@ -3,7 +3,7 @@ import React from "react";
 import Cabecalho from "../../components/Cabecalho";
 import FiltroArtigos from "./FiltroArtigos";
 import ListaArtigos from "./ListaArtigos";
-import { Container } from "./styles";
+import { Container } from "../../styles";
 
 const Home = () => {
   return (

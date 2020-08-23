@@ -6,7 +6,7 @@ import { Select, Label } from "./styles";
 const SelectCategorias = () => {
   return (
     <>
-      <FormControl variant="outlined" fullWidth>
+      <FormControl variant="outlined" margin="normal" fullWidth>
         <Label id="select-outlined-label-categoria">Categoria</Label>
         <Select
           variant="outlined"

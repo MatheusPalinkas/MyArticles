@@ -9,7 +9,7 @@ function FiltroArtigos() {
     <form>
       <Grid container spacing={2}>
         <Grid item xs={5}>
-          <Input variant="outlined" label="Nome" fullWidth />
+          <Input variant="outlined" label="Nome" margin="normal" fullWidth />
         </Grid>
         <Grid item xs={5}>
           <SelectCategorias />

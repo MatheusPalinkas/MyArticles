@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { TextField } from "@material-ui/core";
+import { TextField, Container as ContainerUI } from "@material-ui/core";
+
+export const Container = styled(ContainerUI)`
+  margin-top: 40px;
+`;
 
 export const Input = styled(TextField)`
   & label.Mui-focused {
