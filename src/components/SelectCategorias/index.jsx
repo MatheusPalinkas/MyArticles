@@ -1,21 +1,23 @@
 import React from "react";
 
-import { FormControl, InputLabel, MenuItem } from "@material-ui/core";
-import { Select } from "./styles";
+import { FormControl, MenuItem } from "@material-ui/core";
+import { Select, Label } from "./styles";
 
 const SelectCategorias = () => {
   return (
-    <FormControl variant="outlined" fullWidth>
-      <InputLabel id="select-outlined-label-categoria">Categoria</InputLabel>
-      <Select
-        variant="outlined"
-        label="Categoria"
-        labelId="select-outlined-label-categoria"
-        fullWidth
-      >
-        <MenuItem value="0">Sem categorias</MenuItem>
-      </Select>
-    </FormControl>
+    <>
+      <FormControl variant="outlined" fullWidth>
+        <Label id="select-outlined-label-categoria">Categoria</Label>
+        <Select
+          variant="outlined"
+          label="Categoria"
+          labelId="select-outlined-label-categoria"
+          fullWidth
+        >
+          <MenuItem value="0">Sem categorias</MenuItem>
+        </Select>
+      </FormControl>
+    </>
   );
 };
 
