@@ -9,6 +9,7 @@ import {
   BookmarkOutlined as BookmarkOutlinedUI,
   MoreVert,
 } from "@material-ui/icons";
+import { Link as LinkRouter } from "react-router-dom";
 
 export const TituloCard = styled(Typography)`
   font-size: 25px;
@@ -47,3 +48,5 @@ export const More = styled(MoreVert)`
   cursor: pointer;
   margin-left: 5px;
 `;
+
+export const Link = styled(LinkRouter)``;

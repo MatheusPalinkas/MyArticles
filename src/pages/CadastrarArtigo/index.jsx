@@ -4,8 +4,8 @@ import SelectCategorias from "../../components/SelectCategorias";
 import Cabecalho from "../../components/Cabecalho";
 
 import { FormControlLabel, Switch } from "@material-ui/core";
-import { Form, ButtonSalvar, Inline } from "./styles";
-import { Container, Input } from "../../styles";
+import { Container, Input, Form } from "../../styles";
+import { ButtonSalvar, Inline } from "./styles";
 
 const CadastrarArtigo = () => {
   return (
@@ -28,7 +28,7 @@ const CadastrarArtigo = () => {
           />
           <SelectCategorias />
           <Inline>
-            <FormControlLabel control={<Switch />} label="Exibir lidos" />
+            <FormControlLabel control={<Switch />} label="Marcar como lido" />
             <ButtonSalvar>Salvar</ButtonSalvar>
           </Inline>
         </Form>

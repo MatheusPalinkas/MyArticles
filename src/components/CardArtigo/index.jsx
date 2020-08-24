@@ -7,9 +7,10 @@ import {
   BookmarkOutlined,
   BookmarkSolid,
   More,
+  Link,
 } from "./styles";
 
-const ActionsArtigo = ({ defaultLido }) => {
+const ActionsArtigo = ({ defaultLido, id }) => {
   const [lido, setLido] = useState(defaultLido);
 
   const handleLido = (e) => {
@@ -24,7 +25,9 @@ const ActionsArtigo = ({ defaultLido }) => {
       ) : (
         <BookmarkOutlined onClick={handleLido} />
       )}
-      <More />
+      <Link to={`/artigo/${id}`}>
+        <More />
+      </Link>
     </div>
   );
 };
@@ -43,7 +46,7 @@ const CardArtigo = ({ artigo }) => {
           <TituloCard component="strong" variant="h5">
             {artigo.nome}
           </TituloCard>
-          <ActionsArtigo defaultLido={artigo.lido} />
+          <ActionsArtigo defaultLido={artigo.lido} id={artigo.key} />
         </CardActions>
       </Card>
     </>

@@ -5,6 +5,13 @@ export const Container = styled(ContainerUI)`
   margin-top: 40px;
 `;
 
+export const Form = styled.form`
+  margin: 40px auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Input = styled(TextField)`
   & label.Mui-focused {
     color: #767777;

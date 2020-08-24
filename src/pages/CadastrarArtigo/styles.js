@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { Button } from "@material-ui/core";
 
-export const Form = styled.form`
-  margin: 0 auto;
-  max-width: 500px;
-`;
-
 export const Inline = styled.div`
   display: flex;
   justify-content: space-between;
