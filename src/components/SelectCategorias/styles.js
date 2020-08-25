@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {} from "../../styles";
 import { Select as SelectUI, InputLabel } from "@material-ui/core";
 
 export const Label = styled(InputLabel)`
@@ -19,4 +20,12 @@ export const Select = styled(SelectUI)`
   & .MuiFormLabel-root .Mui-focused {
     color: #767777 !important;
   }
+`;
+
+export const ButtonIcon = styled.button`
+  cursor: pointer;
+  background: red;
+  border: none;
+  width: 50px;
+  height: 50px;
 `;

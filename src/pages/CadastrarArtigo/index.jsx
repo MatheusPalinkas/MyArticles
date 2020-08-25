@@ -1,6 +1,6 @@
 import React from "react";
 
-import SelectCategorias from "../../components/SelectCategorias";
+import InputSelectCategorias from "../../components/InputSelectCategorias";
 import Cabecalho from "../../components/Cabecalho";
 
 import { FormControlLabel, Switch } from "@material-ui/core";
@@ -26,7 +26,7 @@ const CadastrarArtigo = () => {
             margin="normal"
             fullWidth
           />
-          <SelectCategorias />
+          <InputSelectCategorias />
           <Inline>
             <FormControlLabel control={<Switch />} label="Marcar como lido" />
             <ButtonSalvar>Salvar</ButtonSalvar>
