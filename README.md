@@ -26,6 +26,7 @@ yarn install
 // ou
 npm install
 ```
+
 <br/>
 3. Executar o projeto
 

@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import Controllers from "../../contexts/Controllers";
+import Categoria from "../../models/Categoria";
 
 import SelectCategorias from "../SelectCategorias";
 import ToggleButton from "./ToggleButton";
@@ -10,13 +11,23 @@ import { Inline } from "./styles";
 const InputSelectCategorias = () => {
   const [adicionar, setAdicionar] = useState(false);
   const [categoria, setCategoria] = useState("");
-  //const { categoria } = useContext(Controllers);
+  const [categorias, setCategorias] = useState([]);
+  const categoriaControler = useContext(Controllers)["categoria"];
+
+  const getCategorias = useCallback(() => {
+    categoriaControler.listar().then((categorias) => setCategorias(categorias));
+  }, []);
+
+  useEffect(() => {
+    getCategorias();
+  }, [getCategorias]);
 
   const handleToggle = (e) => {
     e.preventDefault();
 
     if (adicionar) {
-      //adicionar  nova categoria
+      categoriaControler.adicionar(new Categoria(categoria));
+      getCategorias();
     }
 
     setAdicionar(!adicionar);
@@ -34,7 +45,7 @@ const InputSelectCategorias = () => {
           fullWidth
         />
       ) : (
-        <SelectCategorias />
+        <SelectCategorias categorias={categorias} />
       )}
       <ToggleButton adicionar={adicionar} handleToggle={handleToggle} />
     </Inline>

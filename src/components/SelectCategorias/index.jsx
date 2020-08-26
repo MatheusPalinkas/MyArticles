@@ -1,12 +1,9 @@
 import React from "react";
 
-import Categoria from "../../models/Categoria";
 import { FormControl, MenuItem } from "@material-ui/core";
 import { Select, Label } from "./styles";
 
-const categorias = [new Categoria("Tech", 1)];
-
-const SelectCategorias = () => {
+const SelectCategorias = ({ categorias }) => {
   return (
     <>
       <FormControl variant="outlined" margin="normal" fullWidth>
