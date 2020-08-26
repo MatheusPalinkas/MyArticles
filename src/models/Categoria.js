@@ -1,5 +1,5 @@
 export default class Categoria {
-  constructor(nome, key) {
+  constructor(nome, key = 0) {
     this._nome = nome;
     this._key = key;
   }
