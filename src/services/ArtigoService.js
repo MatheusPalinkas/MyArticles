@@ -1,20 +1,8 @@
-import ConnectionFactory from "./ConnectionFactory";
 import ArtigoDao from "../daos/ArtigoDao";
+import Service from "./Service";
 
-export default class ArtigoService {
-  constructor() {}
-
-  listar() {
-    return this._getArtigoDao().then((dao) => dao.listar());
-  }
-
-  adicionar(artigo) {
-    return this._getArtigoDao().then((dao) => dao.adicionar(artigo));
-  }
-
-  _getArtigoDao() {
-    return ConnectionFactory.getConnection().then(
-      (connection) => new ArtigoDao(connection)
-    );
+export default class ArtigoService extends Service {
+  constructor() {
+    super(ArtigoDao);
   }
 }
