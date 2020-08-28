@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import StateCategoria from "../../contexts/StateCategoria";
 
 import { FormControl, MenuItem } from "@material-ui/core";
 import { Select, Label } from "./styles";
 
 const SelectCategorias = ({ categorias }) => {
+  const state = useContext(StateCategoria);
+  const [categoria, setCategoria] = state;
+
   return (
     <>
       <FormControl variant="outlined" margin="normal" fullWidth>
@@ -12,9 +16,11 @@ const SelectCategorias = ({ categorias }) => {
           variant="outlined"
           label="Categoria"
           labelId="select-outlined-label-categoria"
+          value={categoria}
+          onChange={(e) => setCategoria(e.target.value)}
           fullWidth
         >
-          <MenuItem value="0">Sem categorias</MenuItem>
+          <MenuItem value={0}>Sem categoria</MenuItem>
           {categorias.map((categoria) => (
             <MenuItem key={categoria.key} value={categoria.key}>
               {categoria.nome}

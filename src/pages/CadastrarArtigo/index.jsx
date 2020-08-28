@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import Artigo from "../../models/Artigo";
+import StateCategoria from "../../contexts/StateCategoria";
+import Controllers from "../../contexts/Controllers";
 
 import InputSelectCategorias from "../../components/InputSelectCategorias";
 import Cabecalho from "../../components/Cabecalho";
@@ -12,7 +16,9 @@ const CadastrarArtigo = () => {
   const [link, setLink] = useState("");
   const [foto, setFoto] = useState("");
   const [lido, setLido] = useState(false);
+  const [categoria, setCategoria] = useState(0);
 
+  const artigoControler = useContext(Controllers)["artigo"];
   const states = {
     nome: setNome,
     link: setLink,
@@ -22,6 +28,9 @@ const CadastrarArtigo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const artigo = new Artigo(nome, link, foto, categoria, lido);
+    artigoControler.adicionar(artigo);
   };
 
   const handleChange = (e) => {
@@ -63,7 +72,9 @@ const CadastrarArtigo = () => {
             onChange={handleChange}
             fullWidth
           />
-          <InputSelectCategorias />
+          <StateCategoria.Provider value={[categoria, setCategoria]}>
+            <InputSelectCategorias />
+          </StateCategoria.Provider>
           <Inline>
             <FormControlLabel
               control={
@@ -71,7 +82,7 @@ const CadastrarArtigo = () => {
               }
               label="Marcar como lido"
             />
-            <ButtonSalvar>Salvar</ButtonSalvar>
+            <ButtonSalvar type="submit">Salvar</ButtonSalvar>
           </Inline>
         </Form>
       </Container>
