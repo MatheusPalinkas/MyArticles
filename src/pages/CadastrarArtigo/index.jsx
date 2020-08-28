@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import Artigo from "../../models/Artigo";
 import StateCategoria from "../../contexts/StateCategoria";
@@ -12,6 +13,8 @@ import { Container, Input, Form } from "../../styles";
 import { ButtonSalvar, Inline } from "./styles";
 
 const CadastrarArtigo = () => {
+  const { push } = useHistory();
+
   const [nome, setNome] = useState("");
   const [link, setLink] = useState("");
   const [foto, setFoto] = useState("");
@@ -31,6 +34,7 @@ const CadastrarArtigo = () => {
 
     const artigo = new Artigo(nome, link, foto, categoria, lido);
     artigoControler.adicionar(artigo);
+    push("/");
   };
 
   const handleChange = (e) => {

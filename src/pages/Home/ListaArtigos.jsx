@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useCallback, useState, useEffect, useContext } from "react";
+
+import Controllers from "../../contexts/Controllers";
+
 import CardArtigo from "../../components/CardArtigo";
 import { Grid } from "@material-ui/core";
 import Artigo from "../../models/Artigo";
 
-const artigos = [
-  new Artigo(
-    "Kanban",
-    "",
-    "https://images.unsplash.com/photo-1590402494610-2c378a9114c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-    5
-  ),
-];
-
 const ListaArtigos = () => {
+  const [artigos, setArtigos] = useState([]);
+
+  const artigoController = useContext(Controllers)["artigo"];
+
+  const getArtigos = useCallback(() => {
+    artigoController.listar().then((artigos) => setArtigos(artigos));
+  }, [artigoController]);
+
+  useEffect(() => {
+    getArtigos();
+  }, [getArtigos]);
+
   return (
     <>
-      <Grid container style={{ marginTop: 40 }}>
+      <Grid container style={{ marginTop: 40 }} spacing={2}>
         {artigos.map((artigo) => (
-          <Grid key={artigo.key} item lg={4} md={6} xs={12}>
+          <Grid key={artigo.key} item lg={4} md={4} sm={6} xs={12}>
             <CardArtigo artigo={artigo} />
           </Grid>
         ))}
