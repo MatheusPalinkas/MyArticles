@@ -11,7 +11,7 @@ function FiltroArtigos() {
 
   const getCategorias = useCallback(() => {
     categoriaControler.listar().then((categorias) => setCategorias(categorias));
-  }, []);
+  }, [categoriaControler]);
 
   useEffect(() => {
     getCategorias();

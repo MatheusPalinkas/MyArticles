@@ -23,10 +23,11 @@ export default class Artigo {
   get key() {
     return this._key;
   }
-  set key(value) {
-    this._key = value;
-  }
   get categoriaId() {
     return this._categoriaId;
+  }
+
+  set key(value) {
+    this._key = value;
   }
 }
