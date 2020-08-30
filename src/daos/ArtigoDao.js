@@ -11,6 +11,7 @@ export default class ArtigoDao extends Dao {
       data._link,
       data._foto,
       data._categoriaId,
+      data._observacao || "",
       data._lido || false,
       key
     );

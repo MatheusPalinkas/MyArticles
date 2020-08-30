@@ -32,7 +32,7 @@ const CadastrarArtigo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const artigo = new Artigo(nome, link, foto, categoria, lido);
+    const artigo = new Artigo(nome, link, foto, categoria, "", lido);
     artigoControler.adicionar(artigo);
     push("/");
   };
