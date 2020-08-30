@@ -15,7 +15,6 @@ export default class ArtigoController {
   atualizar(key, artigo) {
     this._artigoService
       .atualizar(Number(key), artigo)
-      .then((res) => alert(res))
       .catch((erro) => alert(erro));
   }
 

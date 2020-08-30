@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import Controllers from "../../contexts/Controllers";
 import { Card } from "@material-ui/core";
 import {
   TituloCard,
@@ -10,11 +11,14 @@ import {
   Link,
 } from "./styles";
 
-const ActionsArtigo = ({ defaultLido, id }) => {
-  const [lido, setLido] = useState(defaultLido);
+const ActionsArtigo = ({ artigo }) => {
+  const [lido, setLido] = useState(artigo.lido);
+  const artigoController = useContext(Controllers)["artigo"];
 
   const handleLido = (e) => {
     e.preventDefault();
+    artigo.lido = !lido;
+    artigoController.atualizar(artigo.key, artigo);
     setLido(!lido);
   };
 
@@ -25,7 +29,7 @@ const ActionsArtigo = ({ defaultLido, id }) => {
       ) : (
         <BookmarkOutlined onClick={handleLido} />
       )}
-      <Link to={`/artigo/${id}`}>
+      <Link to={`/artigo/${artigo.key}`}>
         <More />
       </Link>
     </div>
@@ -46,7 +50,7 @@ const CardArtigo = ({ artigo }) => {
           <TituloCard component="strong" variant="h5">
             {artigo.nome}
           </TituloCard>
-          <ActionsArtigo defaultLido={artigo.lido} id={artigo.key} />
+          <ActionsArtigo artigo={artigo} />
         </CardActions>
       </Card>
     </>
