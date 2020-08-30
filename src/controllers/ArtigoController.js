@@ -21,4 +21,14 @@ export default class ArtigoController {
         return "";
       });
   }
+
+  procurar(key) {
+    return this._artigoService
+      .procurar(key)
+      .then((tarefa) => tarefa)
+      .catch((erro) => {
+        alert(erro);
+        return "";
+      });
+  }
 }

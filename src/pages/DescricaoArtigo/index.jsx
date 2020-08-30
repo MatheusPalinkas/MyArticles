@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback, useState, useEffect, useContext } from "react";
+import Controllers from "../../contexts/Controllers";
 import { useParams } from "react-router-dom";
 
 import Artigo from "../../models/Artigo";
@@ -8,21 +9,29 @@ import { FormControlLabel, Switch } from "@material-ui/core";
 import { Tumbl, Button, Inline } from "./styles";
 import { Form, Input } from "../../styles";
 
-const artigo = new Artigo(
-  "Kanban",
-  "",
-  "https://images.unsplash.com/photo-1590402494610-2c378a9114c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
-  5
-);
 const DescricaoArtigo = () => {
-  const { id } = useParams();
+  const { key } = useParams();
+  const [artigo, setArtigo] = useState(new Artigo());
+  const artigoController = useContext(Controllers)["artigo"];
+
+  const getArtigo = useCallback(() => {
+    artigoController.procurar(key).then((artigo) => setArtigo(artigo));
+  }, [artigoController, key]);
+
+  useEffect(() => {
+    getArtigo();
+  }, [getArtigo]);
+
   return (
     <>
       <Cabecalho nomePage={artigo.nome} />
       <Tumbl src={artigo.foto} />
       <Form>
         <Inline margin="normal">
-          <FormControlLabel control={<Switch />} label="Marcar como lido" />
+          <FormControlLabel
+            control={<Switch value={artigo.lido} />}
+            label="Marcar como lido"
+          />
           <Button>Acessar</Button>
         </Inline>
         <Input

@@ -8,6 +8,8 @@ import SelectCategorias from "../../components/SelectCategorias";
 import { Grid, FormControlLabel, Switch } from "@material-ui/core";
 
 function FiltroArtigos() {
+  const [lido, setLido] = useState(false);
+  const [nome, setNome] = useState("");
   const [categoria, setCategoria] = useState(null);
   const [categorias, setCategorias] = useState([]);
 
@@ -19,13 +21,24 @@ function FiltroArtigos() {
 
   useEffect(() => {
     getCategorias();
-  }, [getCategorias]);
+  });
+
+  useEffect(() => {
+    console.log("renderizou");
+  }, []);
 
   return (
     <form>
       <Grid container spacing={2}>
         <Grid item xs={5}>
-          <Input variant="outlined" label="Nome" margin="normal" fullWidth />
+          <Input
+            variant="outlined"
+            label="Nome"
+            margin="normal"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            fullWidth
+          />
         </Grid>
         <Grid item xs={5}>
           <StateCategoria.Provider value={[categoria, setCategoria]}>
@@ -33,7 +46,15 @@ function FiltroArtigos() {
           </StateCategoria.Provider>
         </Grid>
         <Grid container item xs={2} justify="center" alignItems="center">
-          <FormControlLabel control={<Switch />} label="Exibir lidos" />
+          <FormControlLabel
+            control={
+              <Switch
+                value={lido}
+                onChange={(e) => setLido(e.target.checked)}
+              />
+            }
+            label="Exibir lidos"
+          />
         </Grid>
       </Grid>
     </form>
