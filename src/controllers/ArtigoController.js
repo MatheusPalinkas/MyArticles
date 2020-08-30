@@ -12,6 +12,13 @@ export default class ArtigoController {
       .catch((erro) => alert(erro));
   }
 
+  atualizar(key, artigo) {
+    this._artigoService
+      .atualizar(Number(key), artigo)
+      .then((res) => alert(res))
+      .catch((erro) => alert(erro));
+  }
+
   listar() {
     return this._artigoService
       .listar()

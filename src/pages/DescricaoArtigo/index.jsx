@@ -13,8 +13,8 @@ const DescricaoArtigo = () => {
   const { key } = useParams();
   const { push } = useHistory();
   const [artigo, setArtigo] = useState(new Artigo());
-  const [lido, setLido] = useState(artigo.lido);
-  const [observacao, setObservacao] = useState(artigo.observacao);
+  const [lido, setLido] = useState(false);
+  const [observacao, setObservacao] = useState("");
   const artigoController = useContext(Controllers)["artigo"];
 
   const getArtigo = useCallback(() => {
@@ -31,7 +31,12 @@ const DescricaoArtigo = () => {
 
   useEffect(() => {
     getArtigo();
-  }, []);
+  }, [getArtigo]);
+
+  useEffect(() => {
+    setLido(artigo.lido);
+    setObservacao(artigo.observacao);
+  }, [artigo]);
 
   return (
     <>
@@ -42,7 +47,7 @@ const DescricaoArtigo = () => {
           <FormControlLabel
             control={
               <Switch
-                value={lido}
+                checked={lido}
                 onChange={(e) => setLido(e.target.checked)}
               />
             }

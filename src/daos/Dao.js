@@ -16,6 +16,18 @@ export default class Dao {
     });
   }
 
+  atualizar(key, model) {
+    return new Promise((resolve, reject) => {
+      let request = this._getStore().put(model, key);
+
+      request.onsuccess = (e) => resolve("Atualizada com sucesso");
+      request.onerror = (e) => {
+        console.log(e.target.error);
+        reject("Erro ao atualizar");
+      };
+    });
+  }
+
   listar() {
     return new Promise((resolve, reject) => {
       let cursor = this._getStore().openCursor();

@@ -10,7 +10,7 @@ import { Grid, FormControlLabel, Switch } from "@material-ui/core";
 function FiltroArtigos() {
   const [lido, setLido] = useState(false);
   const [nome, setNome] = useState("");
-  const [categoria, setCategoria] = useState(null);
+  const [categoria, setCategoria] = useState(0);
   const [categorias, setCategorias] = useState([]);
 
   const categoriaControler = useContext(Controllers)["categoria"];
@@ -22,10 +22,6 @@ function FiltroArtigos() {
   useEffect(() => {
     getCategorias();
   });
-
-  useEffect(() => {
-    console.log("renderizou");
-  }, []);
 
   return (
     <form>
@@ -49,7 +45,7 @@ function FiltroArtigos() {
           <FormControlLabel
             control={
               <Switch
-                value={lido}
+                checked={lido}
                 onChange={(e) => setLido(e.target.checked)}
               />
             }

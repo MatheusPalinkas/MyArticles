@@ -14,6 +14,10 @@ export default class Service {
     return this._getDao().then((dao) => dao.adicionar(model));
   }
 
+  atualizar(key, model) {
+    return this._getDao().then((dao) => dao.atualizar(key, model));
+  }
+
   procurar(key) {
     return this.listar()
       .then((models) =>

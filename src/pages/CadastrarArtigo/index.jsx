@@ -82,7 +82,7 @@ const CadastrarArtigo = () => {
           <Inline>
             <FormControlLabel
               control={
-                <Switch name="lido" value={lido} onChange={handleChange} />
+                <Switch name="lido" checked={lido} onChange={handleChange} />
               }
               label="Marcar como lido"
             />
