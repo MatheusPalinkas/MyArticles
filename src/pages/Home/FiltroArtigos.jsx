@@ -7,7 +7,7 @@ import { Input, Switch } from "../../styles";
 import SelectCategorias from "../../components/SelectCategorias";
 import { Grid, FormControlLabel } from "@material-ui/core";
 
-function FiltroArtigos() {
+function FiltroArtigos({ filtro }) {
   const [lido, setLido] = useState(false);
   const [nome, setNome] = useState("");
   const [categoria, setCategoria] = useState(0);
@@ -22,6 +22,19 @@ function FiltroArtigos() {
   useEffect(() => {
     getCategorias();
   });
+
+  const _filtros = (artigo) => {
+    let valido = true;
+    if (nome !== "") valido = valido && artigo.nome.includes(nome);
+    if (categoria !== 0) valido = valido && artigo.categoriaId === categoria;
+    if (!lido) valido = valido && artigo.lido === false;
+
+    return valido;
+  };
+
+  useEffect(() => {
+    filtro((artigo) => _filtros(artigo));
+  }, [categoria, lido, nome]);
 
   return (
     <form>

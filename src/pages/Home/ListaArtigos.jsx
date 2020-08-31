@@ -9,11 +9,15 @@ import { Grid } from "@material-ui/core";
 
 const ListaArtigos = () => {
   const [artigos, setArtigos] = useState([]);
+  const [artigosComFiltro, setArtigosComFiltro] = useState([]);
 
   const artigoController = useContext(Controllers)["artigo"];
 
   const getArtigos = useCallback(() => {
-    artigoController.listar().then((artigos) => setArtigos(artigos));
+    artigoController.listar().then((artigos) => {
+      setArtigos(artigos);
+      setArtigosComFiltro(artigos);
+    });
   }, [artigoController]);
 
   useEffect(() => {
@@ -22,9 +26,13 @@ const ListaArtigos = () => {
 
   return (
     <>
-      <FiltroArtigos filtro={(filtro) => setArtigos(artigos.filter(filtro))} />
+      <FiltroArtigos
+        filtro={(filtros) => {
+          setArtigosComFiltro(artigos.filter(filtros));
+        }}
+      />
       <Grid container style={{ marginTop: 40 }} spacing={2}>
-        {artigos.map((artigo) => (
+        {artigosComFiltro.map((artigo) => (
           <Grid key={artigo.key} item lg={4} md={4} sm={6} xs={12}>
             <CardArtigo artigo={artigo} />
           </Grid>
