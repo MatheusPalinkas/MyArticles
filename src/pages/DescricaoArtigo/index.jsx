@@ -5,9 +5,9 @@ import { useParams, useHistory } from "react-router-dom";
 import Artigo from "../../models/Artigo";
 import Cabecalho from "../../components/Cabecalho";
 
-import { FormControlLabel, Switch } from "@material-ui/core";
+import { FormControlLabel } from "@material-ui/core";
 import { Tumbl, Button, Inline } from "./styles";
-import { Form, Input } from "../../styles";
+import { Form, Input, Switch } from "../../styles";
 
 const DescricaoArtigo = () => {
   const { key } = useParams();

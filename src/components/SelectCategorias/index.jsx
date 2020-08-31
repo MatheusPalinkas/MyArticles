@@ -15,6 +15,7 @@ const SelectCategorias = ({ categorias }) => {
         <Select
           variant="outlined"
           label="Categoria"
+          margin="normal"
           labelId="select-outlined-label-categoria"
           value={categoria}
           onChange={(e) => setCategoria(e.target.value)}

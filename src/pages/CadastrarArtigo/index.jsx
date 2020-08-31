@@ -8,8 +8,8 @@ import Controllers from "../../contexts/Controllers";
 import InputSelectCategorias from "../../components/InputSelectCategorias";
 import Cabecalho from "../../components/Cabecalho";
 
-import { FormControlLabel, Switch } from "@material-ui/core";
-import { Container, Input, Form } from "../../styles";
+import { FormControlLabel } from "@material-ui/core";
+import { Container, Input, Form, Switch } from "../../styles";
 import { ButtonSalvar, Inline } from "./styles";
 
 const CadastrarArtigo = () => {

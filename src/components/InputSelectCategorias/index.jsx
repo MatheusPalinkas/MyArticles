@@ -25,7 +25,7 @@ const InputSelectCategorias = () => {
   const handleToggle = (e) => {
     e.preventDefault();
 
-    if (adicionar) {
+    if (!!categoria && adicionar) {
       categoriaControler.adicionar(new Categoria(categoria));
       getCategorias();
     }

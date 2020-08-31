@@ -3,9 +3,9 @@ import React, { useCallback, useState, useEffect, useContext } from "react";
 import StateCategoria from "../../contexts/StateCategoria";
 import Controllers from "../../contexts/Controllers";
 
-import { Input } from "../../styles";
+import { Input, Switch } from "../../styles";
 import SelectCategorias from "../../components/SelectCategorias";
-import { Grid, FormControlLabel, Switch } from "@material-ui/core";
+import { Grid, FormControlLabel } from "@material-ui/core";
 
 function FiltroArtigos() {
   const [lido, setLido] = useState(false);
